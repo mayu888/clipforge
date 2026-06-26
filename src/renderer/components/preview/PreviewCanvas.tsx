@@ -16,7 +16,9 @@ import { api } from '../../lib/ipc';
 
 /** Build a media:// URL for a local absolute path. */
 function mediaUrl(p: string): string {
-  return `media://local${p.split('/').map(encodeURIComponent).join('/')}`;
+  // 规范化路径：Windows 反斜杠 → 正斜杠
+  const normalized = p.replace(/\\/g, '/');
+  return `media://local${normalized.split('/').map(encodeURIComponent).join('/')}`;
 }
 
 export default function PreviewCanvas() {

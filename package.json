@@ -1,7 +1,7 @@
 {
   "name": "clipforge",
   "productName": "ClipForge",
-  "version": "1.0.0",
+  "version": "1.0.1-beta.1",
   "description": "Professional local video & audio processing workstation",
   "main": ".vite/build/main.js",
   "private": true,
