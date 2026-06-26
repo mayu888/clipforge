@@ -19,6 +19,8 @@ const config: ForgeConfig = {
     icon: path.resolve(__dirname, 'assets/icon'),
     // Copy ffmpeg binaries to resources/ for production
     extraResource: ['src/main/ffmpeg'],
+    // Linux executable name (lowercase, matches package.json name)
+    executableName: 'clipforge',
   },
   rebuildConfig: {},
   makers: [
@@ -31,8 +33,18 @@ const config: ForgeConfig = {
       format: 'ULFO',
       icon: path.resolve(__dirname, 'assets/icon.icns'),
     }),
-    new MakerRpm({}),
-    new MakerDeb({}),
+    new MakerRpm({
+      options: {
+        name: 'clipforge',
+        productName: 'ClipForge',
+      },
+    }),
+    new MakerDeb({
+      options: {
+        name: 'clipforge',
+        productName: 'ClipForge',
+      },
+    }),
   ],
   plugins: [
     new VitePlugin({
