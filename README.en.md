@@ -2,6 +2,10 @@
 
 **Professional Local Video & Audio Processing Workstation**
 
+**English** | [中文](./README.md)
+
+---
+
 ClipForge is a desktop application built with Electron and FFmpeg, providing rich video/audio processing capabilities. All processing is done locally — no cloud uploads required.
 
 ![License](https://img.shields.io/badge/license-MIT%20%2B%20Commons%20Clause-blue)

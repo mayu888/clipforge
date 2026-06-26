@@ -2,6 +2,10 @@
 
 **专业本地视频与音频处理工作站**
 
+[English](./README.en.md) | **中文**
+
+---
+
 ClipForge 是一款基于 Electron 和 FFmpeg 的桌面应用，提供丰富的视频/音频处理功能，所有处理均在本地完成，无需上传云端。
 
 ![License](https://img.shields.io/badge/license-MIT%20%2B%20Commons%20Clause-blue)
