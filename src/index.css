@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Electron-specific global styles ─── */
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #1a1a1c;
+  color: #e8e8ea;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  user-select: none;
+}
+
+/* ─── Scrollbar (thin, dark) ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #3a3a40; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #4a4a52; }
+
+/* ─── Drag region for frameless window ─── */
+.drag-region {
+  -webkit-app-region: drag;
+}
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* ─── Input focus ring ─── */
+input:focus, select:focus, textarea:focus, button:focus-visible {
+  outline: 1px solid #4a9eff;
+  outline-offset: -1px;
+}
+
+/* ─── Remove default button styles ─── */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+}

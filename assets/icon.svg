@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- 背景渐变：中性深灰 -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0%" stop-color="#2c2c30"/>
+      <stop offset="100%" stop-color="#1a1a1c"/>
+    </linearGradient>
+    <!-- 暖橙渐变：强调色 -->
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5a623"/>
+      <stop offset="100%" stop-color="#f0883e"/>
+    </linearGradient>
+    <!-- 冷蓝渐变：选中色 -->
+    <linearGradient id="select" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6bb5ff"/>
+      <stop offset="100%" stop-color="#4a9eff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 圆角矩形背景（留透明边距） -->
+  <rect x="36" y="36" width="440" height="440" rx="96" ry="96" fill="url(#bg)"/>
+
+  <!-- 音频波形线条（背景层） -->
+  <rect x="174" y="214" width="36" height="84" rx="18" fill="url(#select)" opacity="0.30"/>
+  <rect x="220" y="188" width="36" height="134" rx="18" fill="url(#select)" opacity="0.22"/>
+  <rect x="266" y="204" width="36" height="100" rx="18" fill="url(#select)" opacity="0.18"/>
+
+  <!-- 播放三角形（主视觉，暖橙渐变） -->
+  <path d="M 206 190 L 318 256 L 206 322 Z" fill="url(#accent)" stroke="none"/>
+
+  <!-- 三角形高光（顶部边） -->
+  <path d="M 206 190 L 318 256" stroke="#f5c97a" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- 剪辑标记 — 两条细线穿过三角形右侧，暗示"剪辑/裁剪" -->
+  <line x1="270" y1="218" x2="340" y2="218" stroke="#4a9eff" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+  <line x1="276" y1="294" x2="340" y2="294" stroke="#4a9eff" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+</svg>
