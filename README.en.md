@@ -94,6 +94,18 @@ Select multiple files and apply the same operation to all of them — ideal for 
 
 ## Installation
 
+### Package Managers (Recommended)
+
+```bash
+# macOS - Homebrew
+brew install --cask clipforge
+
+# Windows - Scoop
+scoop install clipforge
+```
+
+### Manual Download
+
 Download the installer for your platform from [Releases](https://github.com/yourusername/clipforge/releases):
 
 - **macOS**: `.dmg` file

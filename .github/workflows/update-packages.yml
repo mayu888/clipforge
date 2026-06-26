@@ -1,0 +1,39 @@
+name: Update Package Managers
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  update-homebrew:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get release info
+        id: release
+        run: |
+          echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Update Homebrew formula
+        uses: macauley/action-homebrew-bump-cask@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          org: mayu888
+          tap: clipforge
+          cask: clipforge
+          livecheck: true
+
+  update-scoop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Update Scoop manifest
+        run: |
+          # Scoop auto-update is handled by checkver/autoupdate in the manifest
+          # Users run: scoop update clipforge
+          echo "Scoop manifest auto-updates via checkver"
+
+      - name: Notify
+        run: echo "Release ${{ steps.release.outputs.version }} published. Update manifests if needed."

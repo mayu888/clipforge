@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "description": "Professional local video and audio processing workstation",
+  "homepage": "https://github.com/mayu888/clipforge",
+  "license": "MIT + Commons Clause",
+  "url": "https://github.com/mayu888/clipforge/releases/download/v1.0.0/ClipForgeSetup-1.0.0.exe",
+  "hash": "YOUR_EXE_SHA256_HERE",
+  "innosetup": true,
+  "shortcuts": [
+    ["ClipForge.exe", "ClipForge"]
+  ],
+  "checkver": {
+    "github": "https://github.com/mayu888/clipforge"
+  },
+  "autoupdate": {
+    "url": "https://github.com/mayu888/clipforge/releases/download/v$version/ClipForgeSetup-$version.exe"
+  }
+}
