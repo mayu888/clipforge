@@ -8,7 +8,9 @@ const VIDEO_EXTS = /^(mp4|mkv|webm|avi|mov|flv|wmv|m4v|ts|mpg|mpeg)$/i;
 const cache = new Map<string, string | null>();
 
 function mediaUrl(p: string): string {
-  return `media://local${p.split('/').map(encodeURIComponent).join('/')}`;
+  // 规范化路径：Windows 反斜杠 → 正斜杠
+  const normalized = p.replace(/\\/g, '/');
+  return `media://local/${normalized.split('/').map(encodeURIComponent).join('/')}`;
 }
 
 function drawToCanvas(source: HTMLVideoElement | HTMLImageElement): string | null {

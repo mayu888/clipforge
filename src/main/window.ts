@@ -1,4 +1,4 @@
-import { BrowserWindow, shell } from 'electron';
+import { BrowserWindow, shell, globalShortcut } from 'electron';
 import path from 'node:path';
 
 declare const MAIN_WINDOW_VITE_DEV_SERVER_URL: string | undefined;
@@ -44,6 +44,19 @@ export function createMainWindow(): BrowserWindow {
     shell.openExternal(url);
     return { action: 'deny' };
   });
+
+  // DevTools shortcuts in development (no menu → no default accelerators)
+  if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
+    globalShortcut.register('F12', () => mainWindow?.webContents.toggleDevTools());
+    globalShortcut.register('CommandOrControl+Shift+I', () =>
+      mainWindow?.webContents.toggleDevTools(),
+    );
+
+    mainWindow.on('closed', () => {
+      globalShortcut.unregister('F12');
+      globalShortcut.unregister('CommandOrControl+Shift+I');
+    });
+  }
 
   return mainWindow;
 }
