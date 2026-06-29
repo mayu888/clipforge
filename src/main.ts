@@ -39,12 +39,18 @@ app.whenReady().then(() => {
   // handler breaks seeking and can leave a broken cached response).
   protocol.handle('media', async (request) => {
     const url = new URL(request.url);
-    const filePath = decodeURIComponent(url.pathname);
+    let filePath = decodeURIComponent(url.pathname);
+
+    // Windows: url.pathname returns "/C:/..." → strip leading slash
+    if (process.platform === 'win32' && /^\/[A-Za-z]:/.test(filePath)) {
+      filePath = filePath.slice(1);
+    }
 
     let stat: fs.Stats;
     try {
       stat = fs.statSync(filePath);
-    } catch {
+    } catch (err) {
+      console.error('[media] stat failed:', filePath, err);
       return new Response('Not found', { status: 404 });
     }
 

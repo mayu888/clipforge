@@ -10,7 +10,7 @@ const cache = new Map<string, string | null>();
 function mediaUrl(p: string): string {
   // 规范化路径：Windows 反斜杠 → 正斜杠
   const normalized = p.replace(/\\/g, '/');
-  return `media://local${normalized.split('/').map(encodeURIComponent).join('/')}`;
+  return `media://local/${normalized.split('/').map(encodeURIComponent).join('/')}`;
 }
 
 function drawToCanvas(source: HTMLVideoElement | HTMLImageElement): string | null {
